@@ -117,7 +117,17 @@
 
     <build>
 
-    <testResources>
+<resources>
+        <resource>
+            <directory>src/main/webapp</directory>
+            <targetPath>META-INF/resources</targetPath>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </resource>
+    </resources>
+
+      <testResources>
         <testResource>
             <directory>src/main/webapp</directory>
             <includes>
@@ -125,20 +135,34 @@
             </includes>
         </testResource>
     </testResources>
+    <plugins>
+      <plugin>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-maven-plugin</artifactId>
+    <version>10.0.6</version>
+    <configuration>
+        <scanIntervalSeconds>10</scanIntervalSeconds>
+        <webApp>
+            <contextPath>/</contextPath>
+        </webApp>
+        <!-- Exclude Kotlin module-info classes -->
+        <metadata>
+            <excludePoms>true</excludePoms>
+        </metadata>
+    </configuration>
+</plugin>
 
-        <plugins>
-         <plugin>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-maven-plugin</artifactId>
-            <version>9.4.44.v20210927</version> <!-- Use the latest version of Jetty -->
+<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.22.2</version> <!-- Use the appropriate version -->
             <configuration>
-                <scanIntervalSeconds>10</scanIntervalSeconds>
-                <webApp>
-                    <contextPath>/</contextPath>
-                </webApp>
+                <includes>
+                    <include>**/*Test.java</include>
+                </includes>
             </configuration>
         </plugin>
-            <plugin>
+<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -147,7 +171,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
+<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
@@ -155,6 +179,9 @@
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
+
+
+        <!-- Other plugins remain unchanged -->
+    </plugins>
+</build>
 </project>
