@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: com.example.AppTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec <<< FAILURE!
+com.example.AppTest.testInvalidName()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.example.AppTest.testInvalidName(AppTest.java:43)
+
+com.example.AppTest.testInvalidEmail()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.example.AppTest.testInvalidEmail(AppTest.java:58)
+
+com.example.AppTest.testInvalidPassword()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.example.AppTest.testInvalidPassword(AppTest.java:73)
+
+com.example.AppTest.testShowRegistrationForm()  Time elapsed: 0.026 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.example.AppTest.testShowRegistrationForm(AppTest.java:84)
+
+com.example.AppTest.testRegisterUserWithValidData()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.example.AppTest.testRegisterUserWithValidData(AppTest.java:91)
+

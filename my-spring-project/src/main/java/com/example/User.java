@@ -42,5 +42,4 @@ public class User {
         this.password = password;
     }
 
-    // getters and setters
 }
